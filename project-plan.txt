@@ -1,0 +1,7 @@
+the project will consist of three html pages:
+
+- index.html will be the homepage and will list the blog posts.
+- new-post.html will be used to create new blog posts.
+- post.html will be used to view and edit posts.
+
+Each post will consist of a title, content section and an optional image. The post data will be stored and retrieved using the webstorage API.
