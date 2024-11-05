@@ -10,7 +10,8 @@ postButton.addEventListener("click", function(event){
         alert("Please fill out the title and content");
     }
     else{
-        let newPost = new Blog(titleField.value, contentField.value, imageField.value);
+        let id = titleField.value;
+        let newPost = new Blog(id, titleField.value, contentField.value, imageField.value);
         let blogList = JSON.parse(localStorage.getItem('blog-objects'));
         blogList.push(newPost);
         localStorage.setItem('blog-objects', JSON.stringify(blogList));

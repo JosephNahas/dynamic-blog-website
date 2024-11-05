@@ -9,11 +9,11 @@ let postContent = document.getElementById('content');
 let postImage = document.getElementById('image');
 let editButton = document.getElementById('edit-btn');
 let saveButton = document.getElementById('save-btn');
+let deleteButton = document.getElementById('delete-btn');
 
 
 if (localStorage.getItem('postID') !== null){
     passedID = localStorage.getItem('postID');
-    console.log(passedID);
 }
 
 let indexofBlog;
@@ -21,19 +21,20 @@ let blogList;
 if (localStorage.getItem('blog-objects') !== null){
     blogList = JSON.parse(localStorage.getItem('blog-objects'));
     blogToView = blogList.find(blog => blog.id === passedID);
-    //console.log(blogToView);
     indexofBlog = blogList.indexOf(blogToView);
 }
 
 if (blogToView !== null){
-    //console.log(blogToView);
     let postTitleText = document.createTextNode(blogToView.title);
     postTitle.appendChild(postTitleText);
     let postContentText = document.createTextNode(blogToView.content);
     postContent.appendChild(postContentText);
-    if (blogToView.image !== null){
+    if (blogToView.image !== ""){
         imageSource = blogToView.image;
         postImage.src = imageSource;
+    }
+    else{
+        postImage.remove();
     }
 }
 
@@ -47,9 +48,17 @@ editButton.addEventListener("click", function(event){
 let editedBlog;
 saveButton.addEventListener("click", function(event){
     event.preventDefault();
-    console.log(postTitle.innerHTML);
     editedBlog = new Blog(postTitle.innerHTML, postTitle.innerHTML, postContent.innerHTML, postImage.src);
     blogList[indexofBlog] = editedBlog;
     localStorage.setItem('blog-objects', JSON.stringify(blogList));
     window.location.href = "index.html";
+});
+
+deleteButton.addEventListener('click', function(event){
+    event.preventDefault();
+    if (confirm("Are you sure you want to delete this post?")){
+        blogList.splice(indexofBlog, 1);
+        localStorage.setItem('blog-objects', JSON.stringify(blogList));
+        window.location.href = "index.html";
+    }
 });
