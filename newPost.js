@@ -2,12 +2,12 @@ import { Blog } from "./blogModule.js";
 
 let postButton = document.getElementById('post-btn');
 let titleField = document.getElementById('title');
-let contentField = document.getElementById('content');
-let imageField = document.getElementById('image');
+let contentField = document.getElementById('newContent');
+let imageField = document.getElementById('newImage');
 
 // when post button is clicked, make a new blog post and add it to the list of posts in the local storage
 postButton.addEventListener("click", function(event){
-    if ((titleField.value === "") || (contentField.value === "")){
+    if ((titleField.value === "") || (contentField.value === "")){ // check for title and content input
         alert("Please fill out the title and content");
     }
     else{
