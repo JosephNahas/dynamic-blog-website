@@ -45,3 +45,30 @@ ul li a:hover {
 h1{
     padding: 0 20px;
 }
+
+button{
+    margin: 0 20px;
+}
+
+button:hover{
+    background-color:brown;
+    color: azure;
+}
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    header{
+        padding: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    section {
+        padding: 10px;
+        margin: 10px;
+    }
+}
