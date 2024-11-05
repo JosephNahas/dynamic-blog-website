@@ -61,14 +61,22 @@ button:hover{
         padding: 10px;
     }
 
+    h1{
+        padding: 10px;
+    }
+
     nav ul li {
         display: block;
         text-align: center;
         margin: 5px 0;
     }
 
-    section {
+    section, p {
         padding: 10px;
         margin: 10px;
+    }
+
+    #content{
+        width: 100%;
     }
 }
