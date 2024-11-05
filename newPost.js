@@ -5,6 +5,7 @@ let titleField = document.getElementById('title');
 let contentField = document.getElementById('content');
 let imageField = document.getElementById('image');
 
+// when post button is clicked, make a new blog post and add it to the list of posts in the local storage
 postButton.addEventListener("click", function(event){
     if ((titleField.value === "") || (contentField.value === "")){
         alert("Please fill out the title and content");
